@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class UtilisateurDaoImpl implements IUtilisateurDao {
-    private static String QUERY_GET_USER_BY_PSEUDO_AND_PASSWORD = "SELECT * FROM Utilisateur WHERE pseudo = ? AND motDePasse = ?";
+    private static String QUERY_GET_USER_BY_PSEUDO_AND_PASSWORD = "SELECT * FROM utilisateur WHERE pseudo = ? AND mot_de_passe = ?";
 
     @Override
     public Utilisateur getUser(String identifiant, String motDePasse) throws SQLException {
@@ -23,7 +23,7 @@ public class UtilisateurDaoImpl implements IUtilisateurDao {
         if (resultSet.next()) {
             int id = resultSet.getInt("id");
             String pseudo = resultSet.getString("pseudo");
-            String motDePass = resultSet.getString("motDePasse");
+            String motDePass = resultSet.getString("mot_de_passe");
             utilisateur = new Utilisateur(id,pseudo,motDePass);
         }
         return utilisateur;
